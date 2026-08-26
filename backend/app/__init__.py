@@ -1,0 +1,32 @@
+from flask import Flask
+
+from flask_cors import CORS
+
+from .api.routes import api
+from .config.settings import Config
+
+
+def create_app():
+    """Create and configure the AEGIS Flask application."""
+
+    app = Flask(__name__)
+    app.config.from_object(Config)
+
+    CORS(
+        app,
+        origins=app.config["CORS_ORIGINS"].split(","),
+    )
+
+    @app.after_request
+    def add_security_headers(response):
+        """Apply baseline security headers to API responses."""
+
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "no-referrer"
+
+        return response
+
+    app.register_blueprint(api)
+
+    return app
