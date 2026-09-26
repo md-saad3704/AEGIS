@@ -4,6 +4,7 @@ from flask_cors import CORS
 
 from .api.routes import api
 from .config.settings import Config
+from .database import init_database
 
 
 def create_app():
@@ -11,6 +12,8 @@ def create_app():
 
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    init_database(app)
 
     CORS(
         app,
