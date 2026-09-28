@@ -5,8 +5,8 @@ This repository isolates SQLAlchemy queries from the application
 services that operate on emergency vehicles.
 """
 
-from app.database import db
-from app.models.emergency_vehicle import EmergencyVehicle
+from ..database import db
+from ..models.emergency_vehicle import EmergencyVehicle
 
 
 class EmergencyVehicleRepository:

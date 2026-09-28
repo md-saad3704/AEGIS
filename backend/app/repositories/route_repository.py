@@ -7,8 +7,8 @@ application and service layers.
 
 from sqlalchemy import cast, String, select
 
-from app.database import db
-from app.models.route import Route
+from ..database import db
+from ..models.route import Route
 
 
 class RouteRepository:

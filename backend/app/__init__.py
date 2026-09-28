@@ -15,6 +15,10 @@ def create_app():
 
     init_database(app)
 
+    # Import all SQLAlchemy models so they are registered with
+    # the shared metadata before Flask-Migrate/Alembic inspects it.
+    from . import models  # noqa: F401
+
     CORS(
         app,
         origins=app.config["CORS_ORIGINS"].split(","),

@@ -8,12 +8,12 @@ tests, and future command-line or simulation components.
 
 from flask import Flask
 
-from .extensions import db
+from .extensions import db, migrate
 
 
 def init_database(app: Flask) -> None:
     """
-    Initialize the shared SQLAlchemy extension with a Flask application.
+    Initialize the shared database extensions with a Flask application.
 
     The database URI and SQLAlchemy configuration are expected to already
     be present in the Flask application's configuration before this
@@ -21,3 +21,4 @@ def init_database(app: Flask) -> None:
     """
 
     db.init_app(app)
+    migrate.init_app(app, db)

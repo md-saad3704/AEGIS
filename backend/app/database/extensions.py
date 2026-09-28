@@ -9,6 +9,7 @@ This application-factory pattern keeps the database layer reusable and
 makes isolated test databases possible.
 """
 
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -17,3 +18,8 @@ from flask_sqlalchemy import SQLAlchemy
 # The extension is initialized with a Flask application in
 # ``app.database.init.init_database`` rather than during module import.
 db = SQLAlchemy()
+
+# Shared Flask-Migrate extension.
+#
+# Flask-Migrate integrates Alembic with the same SQLAlchemy instance.
+migrate = Migrate()

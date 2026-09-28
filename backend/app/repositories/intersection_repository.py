@@ -8,8 +8,8 @@ application logic directly to SQLAlchemy queries.
 
 from sqlalchemy import String, cast, select
 
-from app.database import db
-from app.models.intersection import Intersection
+from ..database import db
+from ..models.intersection import Intersection
 
 
 class IntersectionRepository:

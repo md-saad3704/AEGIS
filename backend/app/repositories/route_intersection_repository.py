@@ -2,8 +2,8 @@
 
 from sqlalchemy import asc, select
 
-from app.database import db
-from app.models.route_intersection import RouteIntersection
+from ..database import db
+from ..models.route_intersection import RouteIntersection
 
 
 class RouteIntersectionRepository:

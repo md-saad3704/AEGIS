@@ -7,8 +7,8 @@ history from the simulation and application service layers.
 
 from sqlalchemy import select
 
-from app.database import db
-from app.models.vehicle_position import VehiclePosition
+from ..database import db
+from ..models.vehicle_position import VehiclePosition
 
 
 class VehiclePositionRepository:
